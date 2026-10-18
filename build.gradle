@@ -1,0 +1,33 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.141'
+}
+
+version = mod_version
+group = 'fr.adrien.cfcsearch'
+
+base {
+    archivesName = 'cfc_search-1.21.1'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    mavenCentral()
+}
+
+neoForge {
+    version = project.neo_version
+}
+
+dependencies {
+    // Compile against the exact jars used in the modpack (Create 6.0.10 + Factory Controller 1.2.1).
+    compileOnly files('libs/create-1.21.1-6.0.10.jar')
+    compileOnly files('libs/createfactorycontroller-1.2.1-neoforge-1.21.1.jar')
+    // Optional at runtime: used to list every recipe category JEI knows.
+    compileOnly files('libs/jei-1.21.1-neoforge-19.44.0.401.jar')
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

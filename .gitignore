@@ -1,0 +1,9 @@
+libs/
+build/
+.gradle/
+run/
+versions_installees/
+.cfc_derniere_version_vue
+github_comment*.md
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
